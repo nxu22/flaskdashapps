@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Converter</title>
+</head>
+<body>
+    <h1>Image Converter</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <p>Usage Instructions:</p>
+    <ul>
+        <li>Upload an image to convert it to a different format.</li>
+        <li>Available output types: JPEG, PNG, BMP, GIF.</li>
+    </ul>
+
+    <h2>Convert Image</h2>
+    <form action="/convert" method="post" enctype="multipart/form-data">
+        <label for="image">Choose an image:</label>
+        <input type="file" name="image" id="image" required>
+        <br>
+        <label for="output_format">Choose output format:</label>
+        <select name="output_format" id="output_format" required>
+            <option value="JPEG">JPEG</option>
+            <option value="PNG">PNG</option>
+            <option value="BMP">BMP</option>
+            <option value="GIF">GIF</option>
+        </select>
+        <br>
+        <button type="submit">Convert</button>
+    </form>
+
+    <h2>Get a Joke</h2>
+    <form action="/joke" method="get">
+        <label for="category">Choose a joke category (neutral, chuck, all):</label>
+        <input type="text" name="category" id="category">
+        <br>
+        <button type="submit">Get Joke</button>
+    </form>
+</body>
+</html>
